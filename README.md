@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NSOSYAL - Frontend Case Study
+Bu proje, Next.js (App Router) kullanılarak geliştirilmiş bir sosyal medya profil sayfasıdır. Kullanıcı bilgileri, istatistikler ve sonsuz kaydırma (Infinite Scroll) özelliğine sahip post akışını içerir.
 
-## Getting Started
-
-First, run the development server:
-
+## Çalıştırma
+### Bağımlılıkları Yükle:
+```bash
+npm install
+```
+### Projeyi Başlat: 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+### Testleri Çalıştır:
+```bash
+npm test
+```
+Tarayıcıda http://localhost:3000 adresinden uygulamaya erişebilirsiniz.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Kullanılan Teknolojiler
+Next.js 14 & TypeScript: Modern uygulama mimarisi ve tip güvenliği.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tailwind CSS: Responsive ve hızlı arayüz geliştirme.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vitest: Birim testleri (Unit tests).
 
-## Learn More
+Intersection Observer: Performanslı sonsuz kaydırma (Infinite Scroll).
 
-To learn more about Next.js, take a look at the following resources:
+## Yaklaşımım ve Kararlarım
+Hibrit Veri Yönetimi: Profil bilgilerini hızlı açılış için Server Component, post akışını ise dinamik yapı nedeniyle Client Component ile yönettim.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Mock API: Backend olmadığı için lib/api.ts dosyasında asenkron ve gecikmeli veriler dondurerek gerçek bir sunucu isteğini simüle ettim.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Hata ve Yükleme Yönetimi: error.tsx ile hata yakalama, Skeleton Shimmer ile yükleme ekranları ve Optimistic UI ile hızlı takip etme butonu ekleyerek kullanıcı deneyimini artırdım.
 
-## Deploy on Vercel
+Performans: next/image ile görsel optimizasyonu sağladım.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Klasör Yapısı
+app/: Sayfa ve hata yönetimi.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+components/: UI bileşenleri.
+
+hooks/: Sonsuz kaydırma mantığı.
+
+lib/: API simülasyonu.
+
+__tests__/: Unit testler.
