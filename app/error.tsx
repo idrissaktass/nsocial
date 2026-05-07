@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, startTransition } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Error({
   error,
@@ -9,9 +10,18 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const router = useRouter();
+
   useEffect(() => {
     console.error(error);
   }, [error]);
+
+  const handleRetry = () => {
+    startTransition(() => {
+      router.refresh(); 
+      reset();
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center">
@@ -21,8 +31,8 @@ export default function Error({
           {error.message || "An unexpected issue occurred while loading data."}
         </p>
         <button
-          onClick={() => reset()}
-          className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
+          onClick={handleRetry}
+          className="bg-black cursor-pointer text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
         >
           Retry
         </button>

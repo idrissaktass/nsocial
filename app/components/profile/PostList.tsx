@@ -11,7 +11,7 @@ interface PostListProps {
   userId: string;
 }
 
-export default function PostList({ userId }: PostListProps) {
+export default function PostList({ userId, username }: { userId: string; username: string }) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -65,7 +65,7 @@ export default function PostList({ userId }: PostListProps) {
     <div className="max-w-150 mx-auto w-full">
       <div className="flex flex-col">
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard key={post.id} post={post} username={username}/>
         ))}
       </div>
 

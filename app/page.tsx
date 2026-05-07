@@ -36,7 +36,7 @@ export default async function Home() {
               </div>
             }
           >
-            <PostList userId={MOCK_USER_ID} />
+            <PostList userId={MOCK_USER_ID} username={user.username} />
           </Suspense>
         </div>
       </main>

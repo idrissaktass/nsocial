@@ -25,7 +25,7 @@ export default async function ProfilePage({ params }: Props) {
       <hr className="border-gray-200 dark:border-gray-800" />
 
       <Suspense fallback={<div>Loading...</div>}>
-        <PostList userId={id} />
+        <PostList userId={user.id} username={user.username} />
       </Suspense>
     </main>
   );

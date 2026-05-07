@@ -7,7 +7,7 @@ describe("ProfileHeader Component", () => {
     id: "1",
     username: "alexrivera",
     displayName: "Alex Rivera",
-    bio: "Senior Full Stack Engineer | Open Source Contributor | Coffee Lover ☕",
+    bio: "Coffee Lover",
     avatarUrl: "/test.jpg",
     isVerified: true,
     createdAt: "2023-05-15T12:00:00Z"

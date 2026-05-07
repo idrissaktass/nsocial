@@ -1,7 +1,12 @@
 import { Post } from "../../types";
 import Image from "next/image";
 
-export default function PostCard({ post }: { post: Post }) {
+interface PostCardProps {
+  post: Post;
+  username: string;
+}
+
+export default function PostCard({ post, username }: PostCardProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-sm mb-6 overflow-hidden">
       {post.imageUrl && (
@@ -21,7 +26,7 @@ export default function PostCard({ post }: { post: Post }) {
           <span className="font-semibold text-sm">{post.commentCount} comments</span>
         </div>
         <p className="text-sm leading-relaxed">
-          <span className="font-bold mr-2 text-blue-600">username</span>
+          <span className="font-bold mr-2 text-blue-600">{username}</span>
           {post.content}
         </p>
         <time className="text-[10px] text-gray-400 uppercase mt-2 block">

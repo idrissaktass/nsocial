@@ -1,4 +1,3 @@
-// lib/api.ts
 import { User, Post, UserStats } from "../types";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -14,7 +13,7 @@ export const fetchUser = async (id: string): Promise<User> => {
     id,
     username: "alexrivera",
     displayName: "Alex Rivera",
-    bio: "Senior Full Stack Engineer | Open Source Contributor | Coffee Lover ☕",
+    bio: "Coffee Lover",
     avatarUrl: `https://api.dicebear.com/7.x/avataaars/svg?seed=Alex`,
     isVerified: true,
     createdAt: "2023-05-15T12:00:00Z",
